@@ -3,6 +3,9 @@ from flask_migrate import Migrate
 from decouple import config
 
 from app.models import configure
+from app.routes import api
+
+
 
 def create_app():
     app = Flask(__name__)
@@ -11,5 +14,9 @@ def create_app():
 
     configure(app)
     Migrate(app=app, db=app.db)
+    register_blueprints(app)
 
     return app
+
+def register_blueprints(app):
+    app.register_blueprint(api.api_bp)
