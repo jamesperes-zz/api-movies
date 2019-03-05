@@ -1,7 +1,7 @@
-from flask import Flask
+from app.load import create_app
+from decouple import config
 
-app = Flask(__name__)
-
+app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=config("DEBUG"))
