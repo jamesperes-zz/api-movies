@@ -1,0 +1,22 @@
+version: '2'
+services:
+
+  flask:
+    build: .
+    volumes:
+      - ./:/server
+    environment:
+      - DEBUG=True
+      - APP_DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
+      - FLASK_APP=run
+    ports:
+      - "5000:5000"
+
+    entrypoint: ./entrypoint.sh
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
