@@ -11,7 +11,7 @@ Api de listagem de filmes usando Flask
   - v1/movies  - GET -  Retorna listagem de todos os filmes
   - v1/movies/<movie_id> - GET - Retorna filme pelo id ou 404
   - v1/movies/register - POST - Registra um Filme na listagem
-  
+
 Exemplo de POST  
 ```console
      {
@@ -49,3 +49,13 @@ Usar Dataset do Telecine (1100 filmes)
 ```console
 make populate.db
 ```
+
+Deploy
+```console
+make deploy
+```
+>Deploy feito com Zappa e autenticação por API Gateway
+
+> Alterar URL do banco de dados dentro do MakeFile
+
+    		-e "APP_DATABASE_URL=<<---URL DATABASE DEPLOY--->>" \ 
