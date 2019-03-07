@@ -60,4 +60,3 @@ class TestValidMovie(BaseTest):
                     }
         response = self.client.post(url_for('api.movieregister'), json=json_data)
         self.assertEqual(201, response.status_code)
-
