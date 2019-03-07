@@ -16,7 +16,7 @@ run.local:
 	docker-compose up -d 
 
 test:
-	docker-compose exec flask python -m unittest app/tests/test_models.py
+	docker-compose exec flask python -m unittest app/tests/test_api.py
 
 populate.db:
 	docker-compose exec flask python populate_db.py
