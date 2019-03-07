@@ -14,7 +14,8 @@ RUN yum install -y \
     libffi-devel \
     libcffi-devel \
     wget \
-    postgresql96-devel \
+    postgresql \
+    postgresql-devel \
     sqlite
 
 

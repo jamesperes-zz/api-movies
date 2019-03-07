@@ -1,4 +1,4 @@
-from flask import jsonify, current_app, request
+from flask import jsonify, current_app, request, abort
 from flask_restful import Resource
 from app.models import Movie, MovieSchema, Cast
 
@@ -15,9 +15,11 @@ class MovieDetail(Resource):
 
     def get(self, movie_id):
         movies = Movie.query.filter(Movie.id == movie_id)
-        movies_schema = FilmSchema(many=True)
+        movies_schema = MovieSchema(many=True)
         output = movies_schema.dump(movies).data
-        return {'movie' : output}
+        if len(output) < 1:
+            abort(404)
+        return output[0]
 
 class MovieRegister(Resource):
 
