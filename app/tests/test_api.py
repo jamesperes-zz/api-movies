@@ -13,14 +13,22 @@ class BaseTest(TestCase):
         self.app_context.push()
         self.client = self.app.test_client()
         self.app.db.create_all()
+        user_json = {
+                    "username": "test_user",
+                    "password": "test_password"
+                    }
+        token_response = self.client.post(url_for("api.userregistration"), json=user_json)
+        token = token_response.json['access_token'] 
         movie = Movie(title =  "titulo do filme",
                         brazilian_title = "titulo do filme em português",
                         year_of_production= "2019",
                         director="nome do diretor do filme",
                         genre="gênero do filme",
                         id=444)
+
         self.app.db.session.add(movie)
         self.app.db.session.commit()
+
 
     def tearDown(self):
         self.app.db.session.remove()
