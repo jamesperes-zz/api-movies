@@ -53,7 +53,7 @@ jobs:
 
       - run:
           name: Deploying
-          command: eb deploy ApiMovies-env 
+          command: eb deploy ApiMovies-env-1 
 
 workflows:
   version: 2
