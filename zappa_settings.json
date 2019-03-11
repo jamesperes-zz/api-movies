@@ -5,7 +5,6 @@
         "profile_name": "default",
         "project_name": "app",
         "runtime": "python3.6",
-        "s3_bucket": "zappa-6z73ixhgn",
-        "api_key_required": true
+        "s3_bucket": "zappa-6z73ixhgn"
     }
 }
