@@ -53,7 +53,7 @@ jobs:
 
       - run:
           name: Deploying
-          command: eb deploy dev-api-movies
+          command: eb deploy develop-api-movies
 
 workflows:
   version: 2
@@ -64,4 +64,4 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - develop
