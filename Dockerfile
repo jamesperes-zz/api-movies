@@ -7,3 +7,8 @@ ADD . /server
 
 WORKDIR /server
 
+EXPOSE 5000
+
+ENTRYPOINT [ "python" ]
+
+CMD [ "run.py" ]
